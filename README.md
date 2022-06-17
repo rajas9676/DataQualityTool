@@ -13,6 +13,7 @@ Following python script would help address the data quality issues in the datase
 9. Export the resulting clean dataframe into parquet/csv format for further processing.
 
 Input : All the input files to be placed in this folder
+
 Output : Resulting files to be exported in this folder
 
 Windows users execute the following command to make sure that all the prerequisites are met
