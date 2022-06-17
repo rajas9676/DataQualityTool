@@ -12,5 +12,14 @@ Following python script would help address the data quality issues in the datase
 8. Implement logging mechanism creating log file with execution results.
 9. Export the resulting clean dataframe into parquet/csv format for further processing.
 
+Input : All the input files to be placed in this folder
+Output : Resulting files to be exported in this folder
+
+Windows users execute the following command to make sure that all the prerequisites are met
+  pip install -r requirements.txt
+  
+Execute the following command post navigating to the directory  with main.py file
+  python main.py
+
 
 
