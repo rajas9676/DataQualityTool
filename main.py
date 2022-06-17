@@ -11,7 +11,7 @@ logging.basicConfig(filename="testrun.log",
                     format='%(asctime)s %(message)s',
                     filemode='w')
 logging.getLogger('matplotlib.font_manager').disabled = True
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 

@@ -1,9 +1,6 @@
-2022-06-17 12:44:11,519 Valid file present for processing
-2022-06-17 12:44:12,650 A total of 4263 duplicate rows present in the dataset
-2022-06-17 12:44:12,756 Number of records after removing duplicates: 33089
-2022-06-17 12:44:12,824 Loaded backend module://backend_interagg version unknown.
-2022-06-17 12:44:12,882 locator: <matplotlib.ticker.AutoLocator object at 0x000001E56E49A370>
-2022-06-17 12:44:13,595 2% of data in description column contains null values
-2022-06-17 12:44:13,627 Number of records after removing Null values: 32562
-2022-06-17 12:44:13,637 Number of records without comments/ratings disabled: 31100
-2022-06-17 12:44:19,533 Successfully created parquet file with clean data
+2022-06-17 13:25:59,465 A total of 4263 duplicate rows present in the dataset
+2022-06-17 13:25:59,591 Number of records after removing duplicates: 33089
+2022-06-17 13:26:04,690 2% of data in description column contains null values
+2022-06-17 13:26:04,743 Number of records after removing Null values: 32562
+2022-06-17 13:26:04,755 Number of records without comments/ratings disabled: 31100
+2022-06-17 13:26:04,760 Successfully removed irrelevant columns
