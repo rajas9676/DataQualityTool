@@ -16,10 +16,12 @@ Input : All the input files to be placed in this folder
 Output : Resulting files to be exported in this folder
 
 Windows users execute the following command to make sure that all the prerequisites are met
-  pip install -r requirements.txt
+
+    pip install -r requirements.txt
   
 Execute the following command post navigating to the directory  with main.py file
-  python main.py
+
+    python main.py
 
 
 
