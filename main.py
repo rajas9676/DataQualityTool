@@ -30,6 +30,7 @@ def handle_duplicates(data):
 
 
 def handle_missing_data(data):
+    print('Handling missing data from de-duplicated dataset...')
     # Visualize the missing data of each column using heat map
     cols = data.columns
     colours = ['#000099', '#ffff00']  # specify the colours - yellow is missing. blue is not missing.
@@ -63,6 +64,7 @@ def handle_ratings_comments_disabled(data):
 
 
 def remove_irrelevant_cols(data):
+    print('Removing irrelevant columns from the dataset...')
     # Remove irrelevant columns from clean data
     remove_cols = ['thumbnail_link', 'comments_disabled',
                    'ratings_disabled', 'video_error_or_removed']
@@ -75,9 +77,11 @@ def remove_irrelevant_cols(data):
 
 
 def handle_dirty_data(data):
-    # remove pipe character from tags column
-    data.loc[data['tags'] == '[None]', 'tags'] = ' '
-    # split tags with '|' and convert list to one string
+    print('dirty data cleanup in progress...')
+    # Replace tags with none values with the title information
+    data.loc[data['tags'] == '[none]', 'tags'] = data['title']
+    # split title, tags with '|' and convert list to one string
+    data['title'] = [' '.join(tag) for tag in data['title'].str.split('|')]
     data['tags'] = [' '.join(tag) for tag in data['tags'].str.split('|')]
     lookup = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n'
     dirty_cols = ['title', 'channel_title', 'description', 'tags']
@@ -87,11 +91,14 @@ def handle_dirty_data(data):
     symbols = [c for c in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"]
     data = data[data['title'].str.contains('|'.join(symbols))]
     data = data[data['channel_title'].str.contains('|'.join(symbols))]
+    data['title'] = data['title'].fillna('').astype(str).str.replace(r'[^A-Za-z ]', '', regex=True).replace('', np.nan,
+                                                                                                            regex=False)
     return data
 
 
 def get_categories():
     # get the category details from json file
+    print('Assigning category titles baesd on the id information...')
     result = {}
     try:
         with open("input/IN_category_id.json", "r") as read_file:
@@ -137,13 +144,13 @@ if __name__ == "__main__":
         # Assign category details based  on lookup from json file
         result = assign_category_details(data_final_clean)
 
-        # store the results in parquet file
+        # store the results in csv/parquet file
+        result.to_csv('tmpresult.csv', index=False, header=True)
         try:
             result.to_parquet('output/clean_file.parquet')
+            print('Successfully exported clean data to parquet format')
             logging.info('Successfully created parquet file with clean data')
         except Exception as e:
             logging.exception(e)
-
-        result.to_csv('tmpresult.csv', index=False, header=True)
     else:
         logging.error('Please place an input for processing')
