@@ -66,7 +66,7 @@ def handle_ratings_comments_disabled(data):
 def remove_irrelevant_cols(data):
     print('Removing irrelevant columns from the dataset...')
     # Remove irrelevant columns from clean data
-    remove_cols = ['thumbnail_link', 'comments_disabled',
+    remove_cols = ['trending_date', 'thumbnail_link', 'comments_disabled',
                    'ratings_disabled', 'video_error_or_removed']
     try:
         result = data.drop(columns=remove_cols, axis=1)

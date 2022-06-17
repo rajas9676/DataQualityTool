@@ -1,6 +1,6 @@
-2022-06-17 14:03:00,762 A total of 4263 duplicate rows present in the dataset
-2022-06-17 14:03:00,845 Number of records after removing duplicates: 33089
-2022-06-17 14:03:01,771 2% of data in description column contains null values
-2022-06-17 14:03:01,805 Number of records after removing Null values: 32562
-2022-06-17 14:03:01,814 Number of records without comments/ratings disabled: 31100
-2022-06-17 14:03:01,817 Successfully removed irrelevant columns
+2022-06-17 15:28:11,608 A total of 4263 duplicate rows present in the dataset
+2022-06-17 15:28:11,660 Number of records after removing duplicates: 33089
+2022-06-17 15:28:12,189 2% of data in description column contains null values
+2022-06-17 15:28:12,212 Number of records after removing Null values: 32562
+2022-06-17 15:28:12,219 Number of records without comments/ratings disabled: 31100
+2022-06-17 15:28:12,220 Successfully removed irrelevant columns
